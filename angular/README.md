@@ -1,5 +1,5 @@
-angular-component-demo
-======================
+atomify-example-angular
+=======================
 
 Simple demo of using [Atomify](https://github.com/Techwraith/atomify) to create AngularJS components.
 
