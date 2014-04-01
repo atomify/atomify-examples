@@ -31,4 +31,4 @@ angular.module('app', [])
 
 ## Try it yourself
 
-Clone the repo, `npm install` (demo-component is already in `node_modules`), then `browserify app.js > dist/bundle.js` and open `dist/index.html`.
+Clone the repo, `cd angular`, `npm install` (demo-component is already in `node_modules`), then `npm run serve`. The demo will open in your default browser, and then you can edit code and refresh to see the changes.
