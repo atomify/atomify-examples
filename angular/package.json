@@ -1,0 +1,42 @@
+{
+  "name": "atomify-example-angular",
+  "version": "1.0.0",
+  "description": "Example using Atomify with AngularJS",
+  "keywords": [
+    "browser",
+    "angular",
+    "browserify",
+    "atomify",
+    "demo"
+  ],
+  "author": "Ben Clinkinbeard",
+  "license": "MIT",
+  "dependencies": {
+    "browserify-shim": "~3.2.2",
+    "atomify": "^1.4.2"
+  },
+  "browserify": {
+    "transform": [
+      "browserify-shim"
+    ]
+  },
+  "browser": {
+    "angular": "./angular.js"
+  },
+  "browserify-shim": {
+    "angular": "global:angular"
+  },
+  "atomify": {
+    "js": {
+      "entry": "app.js",
+      "output": "dist/bundle.js"
+    },
+    "css": {
+      "entry": "index.css",
+      "output": "dist/bundle.css"
+    }
+  },
+  "scripts": {
+    "build": "atomify"
+  }
+}

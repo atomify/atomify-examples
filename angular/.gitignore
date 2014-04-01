@@ -1,0 +1,4 @@
+node_modules/.bin
+node_modules/a*
+node_modules/b*
+node_modules/demo-component/node_modules
