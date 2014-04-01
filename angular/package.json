@@ -13,7 +13,7 @@
   "license": "MIT",
   "dependencies": {
     "browserify-shim": "~3.2.2",
-    "atomify": "^1.4.2"
+    "atomify": "^1.4.4"
   },
   "browserify": {
     "transform": [
@@ -21,7 +21,7 @@
     ]
   },
   "browser": {
-    "angular": "./angular.js"
+    "angular": "./vendor/angular.js"
   },
   "browserify-shim": {
     "angular": "global:angular"
@@ -29,14 +29,14 @@
   "atomify": {
     "js": {
       "entry": "app.js",
-      "output": "dist/bundle.js"
+      "alias": "/bundle.js"
     },
     "css": {
       "entry": "index.css",
-      "output": "dist/bundle.css"
+      "alias": "/bundle.css"
     }
   },
   "scripts": {
-    "build": "atomify"
+    "serve": "atomify --server [ --path index.html --open ]"
   }
 }
