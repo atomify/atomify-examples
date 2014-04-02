@@ -1,6 +1,9 @@
 node_modules/.bin
 node_modules/a*
 node_modules/b*
+node_modules/d*
 node_modules/h*
-node_modules/demo-component/node_modules
+node_modules/j*
+node_modules/pa*
+node_modules/u*
 npm-debug.log

@@ -1,7 +1,7 @@
 {
-  "name": "atomify-example-angular",
+  "name": "atomify-example-backbone-ejs",
   "version": "1.0.0",
-  "description": "Example using Atomify with AngularJS",
+  "description": "Example using Atomify with Backbone and EJS",
   "scripts": {
     "serve": "atomify --server [ --path index.html --open ]"
   },
@@ -17,7 +17,8 @@
   },
   "keywords": [
     "browser",
-    "angular",
+    "backbone",
+    "ejs",
     "browserify",
     "atomify",
     "demo"
@@ -25,18 +26,10 @@
   "author": "Ben Clinkinbeard",
   "license": "MIT",
   "dependencies": {
-    "browserify-shim": "~3.2.2",
-    "atomify": "^1.4.4"
-  },
-  "browserify": {
-    "transform": [
-      "browserify-shim"
-    ]
-  },
-  "browser": {
-    "angular": "./vendor/angular.js"
-  },
-  "browserify-shim": {
-    "angular": "global:angular"
+    "atomify": "^1.4.6",
+    "domready": "^1.0.4",
+    "underscore": "^1.6.0",
+    "backbone": "^1.1.2",
+    "jquery": "^2.1.0"
   }
 }
