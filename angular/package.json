@@ -25,8 +25,9 @@
   "author": "Ben Clinkinbeard",
   "license": "MIT",
   "dependencies": {
+    "atomify": "^1.6.1",
     "browserify-shim": "~3.2.2",
-    "atomify": "^1.4.4"
+    "partialify": "^3.1.1"
   },
   "browserify": {
     "transform": [
