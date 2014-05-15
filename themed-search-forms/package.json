@@ -1,0 +1,39 @@
+{
+  "name": "atomify-example",
+  "version": "0.0.2",
+  "description": "An example app built with atomify",
+  "main": "index.js",
+  "scripts": {
+    "start": "atomify --server [ --path index.html --open ]",
+    "alt": "node build.js alt"
+  },
+  "atomify": {
+    "js": {
+      "entry": "entry.js",
+      "alias": "/bundle.js"
+    },
+    "css": {
+      "entry": "entry.css",
+      "alias": "/bundle.css",
+      "variables": {
+        "lightBG": "#fdf6e3",
+        "darkBG": "#eee8d5",
+        "textColor": "#657b83",
+        "headerColor": "#859900",
+        "buttonColor": "#c0c0c0"
+      }
+    }
+  },
+  "repository": "",
+  "keywords": [
+    "atomify"
+  ],
+  "author": "techwraith",
+  "license": "MIT",
+  "dependencies": {
+    "atomify": "^1.4.4",
+    "ios-overlay": "0.0.1",
+    "jquery-browserify": "~1.8.1",
+    "lodash": "~1.3.1"
+  }
+}

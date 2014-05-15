@@ -1,0 +1,26 @@
+@import "../button/";
+
+.search-form {
+  width: 500px;
+  margin: 100px auto;
+}
+
+.search-form button {
+  padding: 20px;
+  font-size: 18px;
+  display: block;
+}
+
+.search-form input {
+  width: 300px;
+  padding: 20px;
+  font-size: 18px;
+  display: block;
+  float: left;
+  margin-right: 5px;
+}
+
+.search-form label {
+  display: block;
+  opacity: 0.5;
+}

@@ -1,0 +1,25 @@
+@import "ios-overlay";
+@import "./search-form";
+
+body {
+  background: var(lightBG);
+  color: var(textColor);
+}
+
+h1, h2, h3, h4, h5, h6 {
+  color: var(headerColor);
+}
+
+label {
+  color: var(headerColor);
+  font-family: sans-serif;
+}
+
+input {
+  background: var(darkBG);
+  color: var(textColor);
+  box-sizing: border-box;
+  height: auto;
+  outline: none;
+  border: none;
+}

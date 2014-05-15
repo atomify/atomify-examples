@@ -1,0 +1,8 @@
+button {
+  color: var(textColor);
+  background-color: var(buttonColor);
+  width: auto;
+  box-sizing: border-box;
+  outline: none;
+  border: none;
+}
