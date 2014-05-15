@@ -1,51 +1,15 @@
-Atomify Example App
+Themed Search Forms
 ===================
 
 ### Description
 
-This is a simple example app to show off what a [atomify](http://github.com/techwraith/atomify) app might look like. If you want to try it out yourself:
+This is a simple example to show how apps and components can be easily customized for various use cases. The app can be built with 2 different "themes", and each version has 3 instances of a search form component with simple configuration differences.
 
 ```
-git clone git@github.com:Techwraith/atomify-example.git
-cd atomify-example
+git clone git@github.com:atomify/atomify-examples.git
+cd atomify-examples/themed-search-forms
 npm install
-node server.js
-open http://localhost:3000
+npm start
 ```
 
-### App structure
-
-The app should be pretty easy to get around in the basic structure looks like this:
-
-```
-ui/
-|-entry.js
-|-entry.css
-static/
-node_modules/
-index.html
-server.js
-```
-
-#### `server.js`
-
-Serves the app on these routes
-
-- `/`: serves up `index.html`
-- `/bundle.js`: serves the bundled js
-- `/bundle.css`: serves the bundled css
-- `/*`: serves up any static files in `static`
-
-#### `ui/entry.js`
-
-Is the entry point for the Atomify bundled js. This just uses browserify under the hood, so require modules like you normally would. If you'd like to reuire a handlebars template, do that like: `require('template.html.hbs')`.
-
-#### `ui/entry.css`
-
-Is this entry point for the Atomify bundled css. This uses npm-css and rework under the hood.
-
-You'll notice that some variables were injected into the css in `server.js`, you can use those like: `color: var(variableName);`.
-
-Any css in an `@import` statement will be inlined. If the text passed into the `@import` statement is a module name or a directory, it's style is imported.
-
-Any module loaded this way needs to either have an `index.css` file in it's root or a `style` property in it's `package.json`.
+To view the alternate theme, replace `npm start` with `npm run alt`.
