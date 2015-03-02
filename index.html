@@ -14,23 +14,23 @@
 
 		<meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no, minimal-ui">
 
-		<link rel="stylesheet" href="css/reveal.css">
-		<link rel="stylesheet" href="css/theme/night.css" id="theme">
+		<link rel="stylesheet" href="_slides/css/reveal.css">
+		<link rel="stylesheet" href="_slides/css/theme/night.css" id="theme">
 
 		<!-- Code syntax highlighting -->
-		<link rel="stylesheet" href="lib/css/zenburn.css">
+		<link rel="stylesheet" href="_slides/lib/css/zenburn.css">
 
 		<!-- Printing and PDF exports -->
 		<script>
 			var link = document.createElement( 'link' );
 			link.rel = 'stylesheet';
 			link.type = 'text/css';
-			link.href = window.location.search.match( /print-pdf/gi ) ? 'css/print/pdf.css' : 'css/print/paper.css';
+			link.href = window.location.search.match( /print-pdf/gi ) ? '_slides/css/print/pdf.css' : '_slides/css/print/paper.css';
 			document.getElementsByTagName( 'head' )[0].appendChild( link );
 		</script>
 
 		<!--[if lt IE 9]>
-		<script src="lib/js/html5shiv.js"></script>
+		<script src="_slides/lib/js/html5shiv.js"></script>
 		<![endif]-->
 	</head>
 
@@ -43,18 +43,18 @@
 				<section data-background="#08A53C" data-transition="convex">
 					<h1>atomify</h1>
 					<span style="font-size:3em;position:relative;top:0.2em;"> ( </span>
-					<a href="http://www.modulecounts.com/" target="_blank"><img src="images/npm.svg" style="background-color:#fff;vertical-align:middle;width:21%;height:21%;"></a>
+					<a href="http://www.modulecounts.com/" target="_blank"><img src="_slides/images/npm.svg" style="background-color:#fff;vertical-align:middle;width:21%;height:21%;"></a>
 					<span style="font-size:3em;position:relative;top:0.2em;"> + </span>
-					<a href="https://wzrd.in/" target="_blank"><img src="images/browserify3.png" style="width:15%;height:15%;vertical-align:middle;"></a>
+					<a href="https://wzrd.in/" target="_blank"><img src="_slides/images/browserify3.png" style="width:15%;height:15%;vertical-align:middle;"></a>
 					<span style="font-size:3em;position:relative;top:0.2em;"> + </span>
-					<a href="https://www.npmjs.com/search?q=rework" target="_blank"><img src="images/rework.gif" style="vertical-align:middle;width:25%;height:25%;"></a>
+					<a href="https://www.npmjs.com/search?q=rework" target="_blank"><img src="_slides/images/rework.gif" style="vertical-align:middle;width:25%;height:25%;"></a>
 					<span style="font-size:3em;position:relative;top:0.2em;"> ) </span>
 					<br><i>Build small, fully encapsulated, re-usable client side components</i><br>
 					<div style="font-size:3em;position:relative;left:-0.1em;"> &#8659; </div>
-					<img src="images/atomify_logo.jpg" style="vertical-align:middle;width:15%;height:15%;position:relative;top:-0.6em;left:-0.2em;">
+					<img src="_slides/images/atomify_logo.jpg" style="vertical-align:middle;width:15%;height:15%;position:relative;top:-0.6em;left:-0.2em;">
 				</section>
 
-				<section data-markdown data-background="images/matrixRain.gif" data-transition="zoom" data-background-transition="convex" style="background-color:#000;opacity:0.85;">
+				<section data-markdown data-background="_slides/images/matrixRain.gif" data-transition="zoom" data-background-transition="convex" style="background-color:#000;opacity:0.85;">
 					<script id="setup" type="text/template">
 						## Setup
 						_(you may skip this if your system is already configured)_
@@ -67,7 +67,7 @@
 				</section>
 
 				<section>
-					<section data-markdown data-background="images/matrixAgents.gif" data-transition="concave" data-background-transition="zoom" style="background-color:#000;opacity:0.85;">
+					<section data-markdown data-background="_slides/images/matrixAgents.gif" data-transition="concave" data-background-transition="zoom" style="background-color:#000;opacity:0.85;">
 						<script type="text/template">
 							## Scaffold Project Structure (1/5)
 							* create basic component project structure
@@ -77,7 +77,7 @@
 
 						</script>
 					</section>
-<section data-markdown data-background="images/component1c_bg.jpg" data-transition="concave" data-background-transition="zoom" style="background-color:#000;opacity:0.85;">
+<section data-markdown data-background="_slides/images/component1c_bg.jpg" data-transition="concave" data-background-transition="zoom" style="background-color:#000;opacity:0.85;">
 	<div style="position:absolute;width:200px;height:200px;background-color:#000;top:0;left:0;">asdf</div>
 	<script type="text/template">
 		## Scaffold Component (2/5)
@@ -100,7 +100,7 @@
 
 	</script>
 </section>
-					<section data-markdown data-background="images/dodge.png" data-transition="concave" data-background-transition="zoom" style="background-color:#000;opacity:0.85;">
+					<section data-markdown data-background="_slides/images/dodge.png" data-transition="concave" data-background-transition="zoom" style="background-color:#000;opacity:0.85;">
 							<script type="text/template">
 								## First Component (3/5)
 								* Open editor in current directory
@@ -154,7 +154,7 @@
 ```
 							</script>
 						</section>
-						<section data-background="images/component1_bg.jpg"  data-transition="concave" data-background-transition="zoom">
+						<section data-background="_slides/images/component1_bg.jpg"  data-transition="concave" data-background-transition="zoom">
 							<div style="background-color:#000;opacity:0.8;">
 								<h3> First Component (4/5) </h3>
 								<i>Create <b>Live StyleGuide</b> to preview and test the component</i>
@@ -162,7 +162,7 @@
 								<ul><li>Adapt <i><b>./index.html</b></i> and save file</li></ul>
 								<br>
 								<pre style="background-color:#3F3F3F; padding:10px; position: relative; width: 90%; left:0%;">
-&lt;style&gt;body{background-image:url(http://vignette1.wikia.nocookie.net/matrix/images/f/f5/Matrix_Wiki_Seraph_Matrix.png/revision/latest?cb=20120808072031);-webkit-background-size: cover;-moz-background-size: cover;-o-background-size: cover;background-size: cover;}&lt;/style&gt;
+&lt;style&gt;body{background-image:url(http://vignette1.wikia.nocookie.net/matrix/_slides/images/f/f5/Matrix_Wiki_Seraph_Matrix.png/revision/latest?cb=20120808072031);-webkit-background-size: cover;-moz-background-size: cover;-o-background-size: cover;background-size: cover;}&lt;/style&gt;
 &lt;link rel='stylesheet' href='RELEASE/APP.bundle.css'&gt;
 &lt;body&gt;&lt;div class='CONTAINER'&gt;&lt;/div&gt;&lt;script src='RELEASE/APP.bundle.js'&gt;&lt;/script&gt;
 &lt;script&gt;APP(document.querySelector('.CONTAINER'));&lt;/script&gt;
@@ -177,7 +177,7 @@ $> npm install --save-dev serapath/atomify
 								</pre><br>
 							</div>
 						</section>
-						<section data-markdown data-background="images/component1b_bg.jpg" data-transition="concave" data-background-transition="zoom" style="background-color:#000;opacity:0.8;">
+						<section data-markdown data-background="_slides/images/component1b_bg.jpg" data-transition="concave" data-background-transition="zoom" style="background-color:#000;opacity:0.8;">
 							<script type="text/template">
 								## First Component (5/5)
 								* Go again to the terminal and start the dev server
@@ -346,7 +346,7 @@ $> npm install --save-dev serapath/atomify
 				</section>
 
 				<section data-transition="zoom" data-background-transition="zoom" >
-					<section data-background="images/nyancat.gif" data-transition="zoom" data-background-transition="zoom" >
+					<section data-background="_slides/images/nyancat.gif" data-transition="zoom" data-background-transition="zoom" >
 						<div style="position:relative;">
 						<h1 style="z-index:20;position:relative;"> How to theme?</h1>
 						<div style="background-color: #000; opacity:0.8; width:100%; height:100%; position:absolute;top:0;z-index:10;">
@@ -354,7 +354,7 @@ $> npm install --save-dev serapath/atomify
 						</div>
 						</div>
 					</section>
-					<section data-markdown data-background="images/nyancat.gif" data-transition="zoom" data-background-transition="zoom" style="background-color:#000;opacity:0.9;">
+					<section data-markdown data-background="_slides/images/nyancat.gif" data-transition="zoom" data-background-transition="zoom" style="background-color:#000;opacity:0.9;">
 						<script type="text/template">
 							## theme componentA (1/3)
 							* goto componentA + Open editor in case its not already open
@@ -374,7 +374,7 @@ $> npm install --save-dev serapath/atomify
 
 						</script>
 					</section>
-					<section data-markdown data-background="images/nyancat.gif" data-transition="zoom" data-background-transition="zoom" style="background-color:#000;opacity:0.9;">
+					<section data-markdown data-background="_slides/images/nyancat.gif" data-transition="zoom" data-background-transition="zoom" style="background-color:#000;opacity:0.9;">
 						<script type="text/template">
 							## theme componentA (2/3)
 							* create __theme.css__
@@ -422,7 +422,7 @@ $> npm install --save-dev serapath/atomify
 				</section>
 
 <section data-transition="zoom" data-background-transition="zoom" >
-	<section data-markdown data-background="images/seraphBig.png" data-transition="zoom" data-background-transition="zoom" style="background-color:#000;opacity:0.6;">
+	<section data-markdown data-background="_slides/images/seraphBig.png" data-transition="zoom" data-background-transition="zoom" style="background-color:#000;opacity:0.6;">
 		<script type="text/template">
 			## theme componentB (1/3)
 			* goto componentA + Open editor in case its not already open
@@ -443,7 +443,7 @@ $> npm install --save-dev serapath/atomify
 
 		</script>
 	</section>
-	<section data-markdown data-background="images/seraphBig.png" data-transition="zoom" data-background-transition="zoom" style="background-color:#000;opacity:0.7;">
+	<section data-markdown data-background="_slides/images/seraphBig.png" data-transition="zoom" data-background-transition="zoom" style="background-color:#000;opacity:0.7;">
 		<script type="text/template">
 			## theme componentA (2/3)
 			* create __theme.css__
@@ -468,7 +468,7 @@ $> npm install --save-dev serapath/atomify
 
 		</script>
 	</section>
-<section data-markdown data-background="images/seraphBig.png" data-transition="zoom" data-background-transition="zoom" style="background-color:#000;opacity:0.7;">
+<section data-markdown data-background="_slides/images/seraphBig.png" data-transition="zoom" data-background-transition="zoom" style="background-color:#000;opacity:0.7;">
 <script type="text/template">
 ## theme componentA (3/3)
 * open __theme.css__, add and save:
@@ -492,7 +492,7 @@ this should automatically open the live styleguide
 </script>
 </section>
 </section>
-				<section data-background="images/seraph.gif" data-transition="zoom" data-background-transition="zoom"  style="background-color:#000;opacity:0.5;">
+				<section data-background="_slides/images/seraph.gif" data-transition="zoom" data-background-transition="zoom"  style="background-color:#000;opacity:0.5;">
 					<h3> Thx a lot ;-) </h3>
 					<br><br>
 					<h1> Questions?</h1>
@@ -502,8 +502,8 @@ this should automatically open the live styleguide
 
 			</div>
 		</div>
-		<script src="lib/js/head.min.js"></script>
-		<script src="js/reveal.js"></script>
+		<script src="_slides/lib/js/head.min.js"></script>
+		<script src="_slides/js/reveal.js"></script>
 		<script>
 
 			// Full list of configuration options available at:
@@ -518,12 +518,12 @@ this should automatically open the live styleguide
 
 				// Optional reveal.js plugins
 				dependencies: [
-					{ src: 'lib/js/classList.js', condition: function() { return !document.body.classList; } },
-					{ src: 'plugin/markdown/marked.js', condition: function() { return !!document.querySelector( '[data-markdown]' ); } },
-					{ src: 'plugin/markdown/markdown.js', condition: function() { return !!document.querySelector( '[data-markdown]' ); } },
-					{ src: 'plugin/highlight/highlight.js', async: true, condition: function() { return !!document.querySelector( 'pre code' ); }, callback: function() { hljs.initHighlightingOnLoad(); } },
-					{ src: 'plugin/zoom-js/zoom.js', async: true },
-					{ src: 'plugin/notes/notes.js', async: true }
+					{ src: '_slides/lib/js/classList.js', condition: function() { return !document.body.classList; } },
+					{ src: '_slides/plugin/markdown/marked.js', condition: function() { return !!document.querySelector( '[data-markdown]' ); } },
+					{ src: '_slides/plugin/markdown/markdown.js', condition: function() { return !!document.querySelector( '[data-markdown]' ); } },
+					{ src: '_slides/plugin/highlight/highlight.js', async: true, condition: function() { return !!document.querySelector( 'pre code' ); }, callback: function() { hljs.initHighlightingOnLoad(); } },
+					{ src: '_slides/plugin/zoom-js/zoom.js', async: true },
+					{ src: '_slides/plugin/notes/notes.js', async: true }
 				]
 			});
 
