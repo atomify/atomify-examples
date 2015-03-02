@@ -9,7 +9,7 @@ Examples demonstrating Atomify's capabilities and options
 ## Mini Tutorial
 ### How to build a re-usable component
 
-Check the [gh-pages page](http://serapath.github.io/atomify-examples) of this repository and follow the slide to get a working example.
+Check the [http://atomify.github.io/atomify-examples](http://serapath.github.io/atomify-examples) of this repository and follow the slide to get a working example.
 
 The slide also explain how to do theming on a component level. Please examine the source code you create by following the slides and open an issue if you have any questions.
 
