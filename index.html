@@ -1,0 +1,533 @@
+<!doctype html>
+<html lang="en">
+
+	<head>
+		<meta charset="utf-8">
+
+		<title>atomify - Build small, fully encapsulated, re-usable client side components</title>
+
+		<meta name="description" content="Build small, fully encapsulated, re-usable client side components">
+		<meta name="author" content="Alexander Praetorius">
+
+		<meta name="apple-mobile-web-app-capable" content="yes" />
+		<meta name="apple-mobile-web-app-status-bar-style" content="black-translucent" />
+
+		<meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no, minimal-ui">
+
+		<link rel="stylesheet" href="demoslides/css/reveal.css">
+		<link rel="stylesheet" href="demoslides/css/theme/night.css" id="theme">
+
+		<!-- Code syntax highlighting -->
+		<link rel="stylesheet" href="demoslides/lib/css/zenburn.css">
+
+		<!-- Printing and PDF exports -->
+		<script>
+			var link = document.createElement( 'link' );
+			link.rel = 'stylesheet';
+			link.type = 'text/css';
+			link.href = window.location.search.match( /print-pdf/gi ) ? 'demoslides/css/print/pdf.css' : 'demoslides/css/print/paper.css';
+			document.getElementsByTagName( 'head' )[0].appendChild( link );
+		</script>
+
+		<!--[if lt IE 9]>
+		<script src="demoslides/lib/js/html5shiv.js"></script>
+		<![endif]-->
+	</head>
+
+	<body>
+
+		<div class="reveal">
+
+			<!-- Any section element inside of this container is displayed as a slide -->
+			<div class="slides">
+				<section data-background="#08A53C" data-transition="convex">
+					<h1>atomify</h1>
+					<span style="font-size:3em;position:relative;top:0.2em;"> ( </span>
+					<a href="http://www.modulecounts.com/" target="_blank"><img src="demoslides/images/npm.svg" style="background-color:#fff;vertical-align:middle;width:21%;height:21%;"></a>
+					<span style="font-size:3em;position:relative;top:0.2em;"> + </span>
+					<a href="https://wzrd.in/" target="_blank"><img src="demoslides/images/browserify3.png" style="width:15%;height:15%;vertical-align:middle;"></a>
+					<span style="font-size:3em;position:relative;top:0.2em;"> + </span>
+					<a href="https://www.npmjs.com/search?q=rework" target="_blank"><img src="demoslides/images/rework.gif" style="vertical-align:middle;width:25%;height:25%;"></a>
+					<span style="font-size:3em;position:relative;top:0.2em;"> ) </span>
+					<br><i>Build small, fully encapsulated, re-usable client side components</i><br>
+					<div style="font-size:3em;position:relative;left:-0.1em;"> &#8659; </div>
+					<img src="demoslides/images/atomify_logo.jpg" style="vertical-align:middle;width:15%;height:15%;position:relative;top:-0.6em;left:-0.2em;">
+				</section>
+
+				<section data-markdown data-background="demoslides/images/matrixRain.gif" data-transition="zoom" data-background-transition="convex" style="background-color:#000;opacity:0.85;">
+					<script id="setup" type="text/template">
+						## Setup
+						_(you may skip this if your system is already configured)_
+
+						* Install Code Editor, e.g. [atom.io](http://atom.io)
+						* Install [nodejs](http://www.nodejs.org/download) and open a terminal
+						* Open a terminal and create a 'TEST/' directory and go there, e.g.
+								$> mkdir -p ~/workspace/TEST/ && cd $_
+					</script>
+				</section>
+
+				<section>
+					<section data-markdown data-background="demoslides/images/matrixAgents.gif" data-transition="concave" data-background-transition="zoom" style="background-color:#000;opacity:0.85;">
+						<script type="text/template">
+							## Scaffold Project Structure (1/5)
+							* create basic component project structure
+									$> mkdir componentA && cd $_ && mkdir SOURCE
+							* create manifest and stylesheet index for github pages
+									$> touch index.html && touch package.json
+
+						</script>
+					</section>
+<section data-markdown data-background="demoslides/images/component1c_bg.jpg" data-transition="concave" data-background-transition="zoom" style="background-color:#000;opacity:0.85;">
+	<div style="position:absolute;width:200px;height:200px;background-color:#000;top:0;left:0;">asdf</div>
+	<script type="text/template">
+		## Scaffold Component (2/5)
+		* assets & stuff
+
+					$> echo '<svg xmlns="http://www.w3.org/2000/svg"><polyline fill="#cf9" points="15,0 30,30 0,30"/></svg>' > ./SOURCE/arrow.svg
+					$> echo '.ComponentA__icon {background-color:#fff;opacity:.3;}' > ./SOURCE/extra.css
+
+		* template
+
+					$> echo '<div class="ComponentA">foobar <img class="ComponentA__icon" src="arrow.svg"></div>' > ./SOURCE/index.template.html
+
+		* entry css
+
+					$> echo '@import "./extra.css";.ComponentA::before { content: url(arrow.svg);}' > ./SOURCE/index.css
+
+		* entry js
+
+					$> echo 'module.exports=function ComponentA(DOMcontainer){requestAnimationFrame(function(){DOMcontainer.innerHTML=require("./index.template.html");});}' > ./SOURCE/index.js
+
+	</script>
+</section>
+					<section data-markdown data-background="demoslides/images/dodge.png" data-transition="concave" data-background-transition="zoom" style="background-color:#000;opacity:0.85;">
+							<script type="text/template">
+								## First Component (3/5)
+								* Open editor in current directory
+										$> $EDITOR .
+								* Adapt ___./package.json___ and save file &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+```json
+  {
+    "name": "componentA",
+    "version": "1.0.0",
+    "description": "",
+		"style": "SOURCE/index.css",
+		"main": "SOURCE/index.js",
+    "scripts": {
+      "start": "atomify"
+    },
+    "atomify": {
+      "server": {
+        "open": true,
+        "path": "index.html",
+        "lr": {
+          "verbose": true,
+          "quiet": false,
+          "port": 31337,
+          "sync": true
+        }
+      },
+      "js": {
+        "entry": "SOURCE/index.js",
+        "alias": "RELEASE/APP.bundle.js",
+        "output": "RELEASE/APP.bundle.js",
+        "debug": true,
+        "transforms": [],
+        "standalone": "APP"
+      },
+      "css": {
+        "entry": "SOURCE/index.css",
+        "alias": "RELEASE/APP.bundle.css",
+        "output": "RELEASE/APP.bundle.css",
+        "debug": true,
+        "watch": true,
+        "compress": true,
+        "plugin": []
+      },
+      "assets": {
+        "dest": "RELEASE/assets/",
+        "prefix": "/RELEASE/assets/",
+        "retainName": false
+      }
+    }
+  }
+```
+							</script>
+						</section>
+						<section data-background="demoslides/images/component1_bg.jpg"  data-transition="concave" data-background-transition="zoom">
+							<div style="background-color:#000;opacity:0.8;">
+								<h3> First Component (4/5) </h3>
+								<i>Create <b>Live StyleGuide</b> to preview and test the component</i>
+								<br><br>
+								<ul><li>Adapt <i><b>./index.html</b></i> and save file</li></ul>
+								<br>
+								<pre style="background-color:#3F3F3F; padding:10px; position: relative; width: 90%; left:0%;">
+&lt;style&gt;body{background-image:url(http://vignette1.wikia.nocookie.net/matrix/demoslides/images/f/f5/Matrix_Wiki_Seraph_Matrix.png/revision/latest?cb=20120808072031);-webkit-background-size: cover;-moz-background-size: cover;-o-background-size: cover;background-size: cover;}&lt;/style&gt;
+&lt;link rel='stylesheet' href='RELEASE/APP.bundle.css'&gt;
+&lt;body&gt;&lt;div class='CONTAINER'&gt;&lt;/div&gt;&lt;script src='RELEASE/APP.bundle.js'&gt;&lt;/script&gt;
+&lt;script&gt;APP(document.querySelector('.CONTAINER'));&lt;/script&gt;
+&lt;script type="text/javascript" id="__bs_script__"&gt;
+	document.write("&lt;script async src='/browser-sync/browser-sync-client.1.9.1.js'&gt;&lt;\/script&gt;".replace(/HOST/g, location.hostname).replace(/PORT/g, location.port));
+&lt;/script&gt;&lt;/body&gt;
+								</pre>
+								<ul><li>Install <a href="https://github.com/serapath/atomify">Atomify</a> locally</li></ul>
+								<br>
+								<pre style="background-color:#3F3F3F; padding:10px; position: relative; width: 90%; left:0%;">
+$> npm install --save-dev serapath/atomify
+								</pre><br>
+							</div>
+						</section>
+						<section data-markdown data-background="demoslides/images/component1b_bg.jpg" data-transition="concave" data-background-transition="zoom" style="background-color:#000;opacity:0.8;">
+							<script type="text/template">
+								## First Component (5/5)
+								* Go again to the terminal and start the dev server
+										$> npm start
+								* The browser should open automatically and show you
+								the component preview.
+										e.g. http://localhost:31337/
+								* For synchronized cross-device testing, the terminal tells you
+								the external IP, which you can point _(e.g. mobile phone)_ to.
+										e.g. http://192.168.2.104:31337
+
+								_Have fun developing your component :-)_
+							</script>
+						</section>
+				</section>
+
+
+				<section>
+					<section data-transition="zoom" data-markdown data-background="#08A53C" data-background-transition="zoom" style="background-color:#000;opacity:0.85;">
+						<script type="text/template">
+							## Scaffold another Component Structure (1/5)
+							Press __&lt;CTRL+C&gt;__ to stop the server running on the terminal
+
+							* create basic component project structure
+									$> cd .. && mkdir componentB && cd $_ && mkdir SOURCE
+							* create manifest and stylesheet index for github pages
+									$> touch index.html && touch package.json
+
+						</script>
+					</section>
+<section data-markdown data-background="#08A53C" data-transition="convex" data-background-transition="slide" style="background-color:#000;opacity:0.85;">
+	<div style="position:absolute;width:200px;height:200px;background-color:#000;top:0;left:0;">asdf</div>
+	<script type="text/template">
+		## Scaffold Component (2a/5)
+		* template
+
+					$> echo '<div class="ComponentB"><div class="ComponentB__title"> My Letter is B</div><div class="ComponentB__ComponentA"></div></div>' > ./SOURCE/index.template.html
+
+		* entry css
+
+					$> echo '@import "componentA";.ComponentB__title {color:#fff;}.ComponentB__ComponentA{width:300px;height:300px;border:3px solid white;}' > ./SOURCE/index.css
+
+		* entry js
+
+					$> echo 'module.exports=function ComponentA(DOMcontainer){requestAnimationFrame(function(){DOMcontainer.innerHTML=require("./index.template.html");require("componentA")(document.querySelector(".ComponentB__ComponentA"));});}' > ./SOURCE/index.js
+
+	</script>
+</section>
+					<section data-markdown data-background="#08A53C" data-transition="convex" data-background-transition="slide" style="background-color:#000;opacity:0.85;color:green;">
+						<script type="text/template">
+							## Scaffold Component (2b/5)
+							__DO IT LIKE A PRO!__
+
+							_publish to npm (__npm register, npm publish__) or on github_
+
+							* alternativefor now - __pretend you did...__
+
+										$> cd ../componentA && npm link && ../componentB && npm link componentA
+
+							* (in order to undo) - __...but skip this for now!__ :-)
+
+										$> npm unlink componentA && cd ../componentA && npm unlink && ../componentB
+
+							* entry css - can now be changed to: __@import "componentA";__
+
+										$> echo '@import "componentA";.ComponentB__title {color:#fff;}.ComponentB__ComponentA{width:300px;height:300px;border:3px solid white;}' > ./SOURCE/index.css
+
+							* entry js - can now be changed to: __require("componentA")__
+
+										$> echo 'module.exports=function ComponentA(DOMcontainer){requestAnimationFrame(function(){DOMcontainer.innerHTML=require("./index.template.html");require("componentA")(document.querySelector(".ComponentB__ComponentA"));});}' > ./SOURCE/index.js
+
+						</script>
+					</section>
+					<section data-markdown data-background="#08A53C" data-transition="zoom" data-background-transition="slide" style="background-color:#000;opacity:0.85;">
+							<script type="text/template">
+								## First Component (3/5)
+								* Open editor in current directory
+										$> $EDITOR .
+								* Adapt ___./package.json___ and save file &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+```json
+	{
+		"name": "componentB",
+		"version": "1.0.0",
+		"description": "",
+		"style": "SOURCE/index.css",
+		"main": "SOURCE/index.js",
+		"scripts": {
+			"start": "atomify"
+		},
+		"atomify": {
+			"server": {
+				"open": true,
+				"path": "index.html",
+				"lr": {
+					"verbose": true,
+					"quiet": false,
+					"port": 31337,
+					"sync": true
+				}
+			},
+			"js": {
+				"entry": "SOURCE/index.js",
+				"alias": "RELEASE/APP.bundle.js",
+				"output": "RELEASE/APP.bundle.js",
+				"debug": true,
+				"transforms": [],
+				"standalone": "APP"
+			},
+			"css": {
+				"entry": "SOURCE/index.css",
+				"alias": "RELEASE/APP.bundle.css",
+				"output": "RELEASE/APP.bundle.css",
+				"debug": true,
+				"watch": true,
+				"compress": true,
+				"plugin": []
+			},
+			"assets": {
+				"dest": "RELEASE/assets/",
+				"prefix": "/RELEASE/assets/",
+				"retainName": false
+			}
+		}
+	}
+```
+							</script>
+						</section>
+						<section data-background="#08A53C"  data-transition="convex" data-background-transition="slide">
+							<div style="background-color:#000;opacity:0.8;">
+								<h3> First Component (4/5) </h3>
+								<i>Create <b>Live StyleGuide</b> to preview and test the component</i>
+								<br><br>
+								<ul><li>Adapt <i><b>./index.html</b></i> and save file</li></ul>
+								<br>
+								<pre style="background-color:#3F3F3F; padding:10px; position: relative; width: 90%; left:0%;">
+&lt;style&gt;body{background-color:#08A53C;}&lt;/style&gt;
+&lt;link rel='stylesheet' href='RELEASE/APP.bundle.css'&gt;
+&lt;body&gt;&lt;div class='CONTAINER'&gt;&lt;/div&gt;&lt;script src='RELEASE/APP.bundle.js'&gt;&lt;/script&gt;
+&lt;script&gt;APP(document.querySelector('.CONTAINER'));&lt;/script&gt;
+&lt;script type="text/javascript" id="__bs_script__"&gt;
+	document.write("&lt;script async src='/browser-sync/browser-sync-client.1.9.1.js'&gt;&lt;\/script&gt;".replace(/HOST/g, location.hostname).replace(/PORT/g, location.port));
+&lt;/script&gt;&lt;/body&gt;
+								</pre>
+								<ul><li>Install <a href="https://github.com/serapath/atomify">Atomify</a> locally</li></ul>
+								<br>
+								<pre style="background-color:#3F3F3F; padding:10px; position: relative; width: 90%; left:0%;">
+$> npm install --save-dev serapath/atomify
+								</pre><br>
+							</div>
+						</section>
+						<section data-markdown data-background="#08A53C" data-transition="convex" data-background-transition="slide" style="background-color:#000;opacity:0.8;">
+							<script type="text/template">
+								## First Component (5/5)
+								* Go again to the terminal and start the dev server
+										$> npm start
+								* The browser should open automatically and show you
+								the component preview.
+										e.g. http://localhost:31337/
+								* For synchronized cross-device testing, the terminal tells you
+								the external IP, which you can point _(e.g. mobile phone)_ to.
+										e.g. http://192.168.2.104:31337
+
+								_Have fun developing your component :-)_
+							</script>
+						</section>
+				</section>
+
+				<section data-transition="zoom" data-background-transition="zoom" >
+					<section data-background="demoslides/images/nyancat.gif" data-transition="zoom" data-background-transition="zoom" >
+						<div style="position:relative;">
+						<h1 style="z-index:20;position:relative;"> How to theme?</h1>
+						<div style="background-color: #000; opacity:0.8; width:100%; height:100%; position:absolute;top:0;z-index:10;">
+							&nbsp;
+						</div>
+						</div>
+					</section>
+					<section data-markdown data-background="demoslides/images/nyancat.gif" data-transition="zoom" data-background-transition="zoom" style="background-color:#000;opacity:0.9;">
+						<script type="text/template">
+							## theme componentA (1/3)
+							* goto componentA + Open editor in case its not already open
+
+									$> $> cd ../componentA && $EDITOR .
+
+							* change existing files to include variable placeholders
+							```
+								[extra.css]
+									.ComponentA__icon {background-color:var(--ComponentA-backgroundColor);opacity:var(--ComponentA-opacity);}
+
+								[index.css]
+									.ComponentA { font-size: 25px; color: var(--ComponentA-color); }
+									@import "./extra.css";.ComponentA::before { content: url(arrow.svg);}
+							```
+
+
+						</script>
+					</section>
+					<section data-markdown data-background="demoslides/images/nyancat.gif" data-transition="zoom" data-background-transition="zoom" style="background-color:#000;opacity:0.9;">
+						<script type="text/template">
+							## theme componentA (2/3)
+							* create __theme.css__
+
+									$> touch ./SOURCE/theme.css
+
+							* open __package.json__ and change
+							```
+"css": {
+	"entry": "SOURCE/index.css",
+	...
+}
+							```
+							* to
+```
+"css": {
+"entry": "SOURCE/theme.css",
+...
+}
+```
+
+
+						</script>
+					</section>
+<section data-markdown data-background="#08A53C" data-transition="zoom" data-background-transition="zoom" style="background-color:#000;opacity:0.9;">
+	<script type="text/template">
+		## theme componentA (3/3)
+		* open __theme.css__, add and save:
+			```
+@import './index';
+:root {
+	  --ComponentA-backgroundColor: red;
+	  --ComponentA-color: red;
+	  --ComponentA-opacity: 0.3;
+}
+			```
+		* Go again to the terminal and start the dev server
+
+					$> npm start
+
+		this should automatically open the live styleguide
+
+	</script>
+</section>
+				</section>
+
+<section data-transition="zoom" data-background-transition="zoom" >
+	<section data-markdown data-background="demoslides/images/seraphBig.png" data-transition="zoom" data-background-transition="zoom" style="background-color:#000;opacity:0.6;">
+		<script type="text/template">
+			## theme componentB (1/3)
+			* goto componentA + Open editor in case its not already open
+
+					$> $> cd ../componentB && $EDITOR .
+
+			* change existing files to include variable placeholders
+			```
+[index.css]
+	@import "componentA";
+	.ComponentB__title { color:var(--ComponentB-color); }
+	.ComponentB__ComponentA {
+		width: var(--ComponentB-size);
+		height: var(--ComponentB-size);
+		border: 3px solid var(--ComponentB-borderColor);
+	}
+			```
+
+		</script>
+	</section>
+	<section data-markdown data-background="demoslides/images/seraphBig.png" data-transition="zoom" data-background-transition="zoom" style="background-color:#000;opacity:0.7;">
+		<script type="text/template">
+			## theme componentA (2/3)
+			* create __theme.css__
+
+					$> touch ./SOURCE/theme.css
+
+			* open __package.json__ and change
+			```
+"css": {
+"entry": "SOURCE/index.css",
+...
+}
+			```
+			* to
+```
+"css": {
+"entry": "SOURCE/theme.css",
+...
+}
+```
+
+
+		</script>
+	</section>
+<section data-markdown data-background="demoslides/images/seraphBig.png" data-transition="zoom" data-background-transition="zoom" style="background-color:#000;opacity:0.7;">
+<script type="text/template">
+## theme componentA (3/3)
+* open __theme.css__, add and save:
+```
+@import './index';
+:root {
+	--ComponentA-backgroundColor: yellow;
+	--ComponentA-color: yellow;
+	--ComponentA-opacity: 0.9;
+	--ComponentB-borderColor: blue;
+	--ComponentB-size: 300px;
+	--ComponentB-color: red;
+}
+```
+* Go again to the terminal and start the dev server
+
+		$> npm start
+
+this should automatically open the live styleguide
+
+</script>
+</section>
+</section>
+				<section data-background="demoslides/images/seraph.gif" data-transition="zoom" data-background-transition="zoom"  style="background-color:#000;opacity:0.5;">
+					<h3> Thx a lot ;-) </h3>
+					<br><br>
+					<h1> Questions?</h1>
+					<br><br>
+					<b><i>by</b> <a href="http://twitter.com/serapath">@serapath</a></i>
+				</section>
+
+			</div>
+		</div>
+		<script src="demoslides/lib/js/head.min.js"></script>
+		<script src="demoslides/js/reveal.js"></script>
+		<script>
+
+			// Full list of configuration options available at:
+			// https://github.com/hakimel/reveal.js#configuration
+			Reveal.initialize({
+				controls: true,
+				progress: true,
+				history: true,
+				center: true,
+
+				transition: 'slide', // none/fade/slide/convex/concave/zoom
+
+				// Optional reveal.js plugins
+				dependencies: [
+					{ src: 'demoslides/lib/js/classList.js', condition: function() { return !document.body.classList; } },
+					{ src: 'demoslides/plugin/markdown/marked.js', condition: function() { return !!document.querySelector( '[data-markdown]' ); } },
+					{ src: 'demoslides/plugin/markdown/markdown.js', condition: function() { return !!document.querySelector( '[data-markdown]' ); } },
+					{ src: 'demoslides/plugin/highlight/highlight.js', async: true, condition: function() { return !!document.querySelector( 'pre code' ); }, callback: function() { hljs.initHighlightingOnLoad(); } },
+					{ src: 'demoslides/plugin/zoom-js/zoom.js', async: true },
+					{ src: 'demoslides/plugin/notes/notes.js', async: true }
+				]
+			});
+
+		</script>
+
+	</body>
+</html>
